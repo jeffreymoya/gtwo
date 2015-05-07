@@ -1,0 +1,17 @@
+.shopping-cart {
+	border: 1px solid #e6e6e6;
+}
+.shopping-cart img {
+	height: 50%;
+	width: 50%;
+}
+.img-thumbnail {
+	width: 150px;
+	height: 150px;
+}
+.img-holder {
+	margin-right: 20px;
+}
+.purchase-info {
+	margin-left: 20px;
+}
