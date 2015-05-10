@@ -137,6 +137,7 @@ return [
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',
 		'Darryldecode\Cart\CartServiceProvider',
+		'Intervention\Image\ImageServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -196,8 +197,12 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Form'		=> 'Illuminate\Html\FormFacade',
-		'Cart' 		=> 'Darryldecode\Cart\Facades\CartFacade'
+		'Cart' 		=> 'Darryldecode\Cart\Facades\CartFacade',
+		'Image' => 'Intervention\Image\Facades\Image'
 
 	],
+
+	//currency
+	'currency' => 'USD',
 
 ];

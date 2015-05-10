@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration {
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->float('price')->default(0);
+            $table->float('discount');
             $table->float('commission')->default(0);
             $table->integer('available')->default(0);
             $table->timestamps();

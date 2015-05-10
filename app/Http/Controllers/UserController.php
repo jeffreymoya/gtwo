@@ -4,9 +4,16 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller {
+
+	public function __construct() {
+
+		$this->middleware('auth');
+		$this->middleware('admin', ['except' => ['referrals']]);
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -116,6 +123,13 @@ class UserController extends Controller {
 		$user->delete();
 
 		return redirect()->route('users.index')->with('message', 'Item deleted successfully.');
+	}
+
+	public function referrals() {
+
+		$referrals = Auth::user()->referrals;
+
+		return view('users.referrals', compact('referrals'));
 	}
 
 }

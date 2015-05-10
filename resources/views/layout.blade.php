@@ -18,9 +18,6 @@
 </head>
 
 <body>
-
-
-
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
@@ -34,9 +31,19 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li @if(!Request::is('about') AND !Request::is('contact') AND !Request::is('auth/login') AND !Request::is('auth/register')) class="active" @endif><a href="{{url()}}">Home</a></li>
-                <li @if(Request::is('about')) class="active" @endif><a href="{{url('about')}}">About</a></li>
-                <li @if(Request::is('contact')) class="active" @endif><a href="{{url('contact')}}">Contact</a></li>
+                <li><a href="{{url()}}">Home</a></li>
+                @if(Auth::guest())
+                    <li @if(Request::is('about')) class="active" @endif><a href="{{url('about')}}">About</a>
+                    </li>
+                    <li @if(Request::is('contact')) class="active" @endif><a href="{{url('contact')}}">Contact</a>
+                @elseif(Auth::check() AND Auth::user()->isAdmin())
+                    <li @if(Request::is('sales')) class="active" @endif><a href="#">Sales</a></li>
+                    <li @if(Request::is('orders')) class="active" @endif><a href="{{url('orders')}}">Approve Deposits</a></li>
+                    <li @if(Request::is('members')) class="active" @endif><a href="#">Members</a></li>
+                @else
+                    <li @if(Request::is('orders')) class="active" @endif><a href="{{url('orders')}}">Orders</a></li>
+                    <li @if(Request::is('referrals')) class="active" @endif><a href="{{url('referrals')}}">Referrals</a></li>
+                @endif
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
@@ -55,8 +62,15 @@
     </div>
 </nav>
 <div class="container">
+    @if(Session::has('message'))
+        <div class="alert alert-success">
+        {{Session::get('message')}}
+        </div>
+    @endif
     <div class="row">
-        <div class="col-md-12">@yield('content')</div>
+        <div class="col-md-12">
+            @yield('content')
+        </div>
     </div>
 </div><!-- /.container -->
 

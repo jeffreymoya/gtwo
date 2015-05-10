@@ -19,9 +19,17 @@ Route::get('contact', 'HomeController@contact');
 
 Route::post('cart', 'CartController@store');
 
-Route::get('cart/checkout', 'CartController@checkout');
+Route::get('cart/checkout', ['middleware' => 'auth', 'uses'=>'CartController@checkout']);
 
 Route::get('cart/{id}', 'CartController@destroy');
+
+Route::resource('orders', 'OrderController');
+
+Route::post('orders/upload', 'OrderController@upload');
+
+Route::post('orders/verify', 'OrderController@verify');
+
+Route::get('referrals', 'UserController@referrals');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
@@ -29,3 +37,5 @@ Route::controllers([
 ]);
 
 Route::resource("products","ProductController");
+
+Route::get('images/deposits/{id}', 'ImageController@deposits');

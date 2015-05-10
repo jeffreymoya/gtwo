@@ -6,6 +6,7 @@ use App\Product;
 use Cart;
 use Redirect;
 use Input;
+use Auth;
 
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class CartController extends Controller {
 	{
 		$product = Product::findOrFail($request->input('prodId'));
 
-		Cart::add($product->id, $product->name, $product->price, $request->input('quantity'), array());
+		Cart::add($this->createItem($product, $request->input('quantity')));
 
 		return Redirect::action('ProductController@index');
 	}
@@ -32,6 +33,17 @@ class CartController extends Controller {
 	 */
 	public function checkout()
 	{
+		if(Auth::user()->hasDiscount()) {
+			$items = Cart::getContent();
+			foreach($items as $item) {
+				if(empty($item->conditions)) {
+					$prod = Product::find($item->id);
+					Cart::remove($item->id);
+					Cart::add($this->createItem($prod, $item->quantity));
+				}
+			}
+		}
+		
 		return view('products.checkout');
 	}
 
@@ -46,6 +58,47 @@ class CartController extends Controller {
 		Cart::remove($id);
 
 		return Redirect::back();
+	}
+
+	protected function createItem(Product $product, $quantity) {
+		if(Auth::check() && Auth::user()->hasDiscount()) {
+			if($product->discount > 0) {
+				$discount = $product->discount;
+				if($discount >= 1) {
+					$discount = intval($discount);
+				} else {
+					$discount = round($discount, 2);
+				}
+
+				$discount = $discount . '%';
+				$saleCondition = new \Darryldecode\Cart\CartCondition(array(
+		            'name' => $discount,
+		            'type' => 'sale',
+		            'target' => 'item',
+		            'value' => '-' . $discount
+		        )); 
+
+		        $item = array(
+		            'id' => $product->id,
+		            'name' => $product->name,
+		            'price' => $product->price,
+		            'quantity' => $quantity,
+		            'attributes' => array(),
+		            'conditions' => $saleCondition
+		        );
+
+			} 
+		} else {
+			$item = array(
+	            'id' => $product->id,
+	            'name' => $product->name,
+	            'price' => $product->price,
+	            'quantity' => $quantity,
+	            'attributes' => array()
+	        );
+		}
+
+		return $item;
 	}
 
 }

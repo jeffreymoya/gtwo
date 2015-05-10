@@ -3,10 +3,66 @@
 	{
 		"selected_items":
 		[
+			[
+				"find",
+				"findOrFail"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"referra",
+				"referral_id"
+			],
+			[
+				"c",
+				"color	Attr"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
+				"user",
+				"user_id"
+			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "app/Http/Controllers/OrderController.php",
+			"settings":
+			{
+				"buffer_size": 4211,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/UserController.php",
+			"settings":
+			{
+				"buffer_size": 2973,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/users/referrals.blade.php",
+			"settings":
+			{
+				"buffer_size": 1566,
+				"line_ending": "Windows"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -15,10 +71,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 104.0,
-		"last_filter": "insta",
+		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"Snippet: ",
+				"Snippet: Function"
+			],
 			[
 				"insta",
 				"Package Control: Install Package"
@@ -50,24 +110,110 @@
 	},
 	"expanded_folders":
 	[
-		"/C/gtwo"
+		"/C/gtwo",
+		"/C/gtwo/app",
+		"/C/gtwo/app/Handlers",
+		"/C/gtwo/app/Http",
+		"/C/gtwo/app/Http/Controllers",
+		"/C/gtwo/app/Http/Controllers/Auth",
+		"/C/gtwo/app/Http/Middleware",
+		"/C/gtwo/app/Providers",
+		"/C/gtwo/app/Services",
+		"/C/gtwo/config",
+		"/C/gtwo/database",
+		"/C/gtwo/database/migrations",
+		"/C/gtwo/database/seeds",
+		"/C/gtwo/public",
+		"/C/gtwo/public/css",
+		"/C/gtwo/resources",
+		"/C/gtwo/resources/assets",
+		"/C/gtwo/resources/assets/less",
+		"/C/gtwo/resources/upload",
+		"/C/gtwo/resources/upload/deposit",
+		"/C/gtwo/resources/upload/identification",
+		"/C/gtwo/resources/views",
+		"/C/gtwo/resources/views/auth",
+		"/C/gtwo/resources/views/orders",
+		"/C/gtwo/resources/views/products",
+		"/C/gtwo/resources/views/users"
 	],
 	"file_history":
 	[
+		"/C/gtwo/resources/views/orders/index.blade.php",
+		"/C/gtwo/resources/views/orders/edit.blade.php",
+		"/C/gtwo/resources/views/products/cart.blade.php",
+		"/C/gtwo/resources/views/orders/show.blade.php",
+		"/C/gtwo/resources/views/layout.blade.php",
+		"/C/gtwo/app/Http/routes.php",
+		"/C/gtwo/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php",
+		"/C/gtwo/app/User.php",
+		"/C/gtwo/resources/views/products/checkout.blade.php",
+		"/C/gtwo/resources/views/users/referrals.blade.php",
+		"/C/gtwo/public/css/custom.css",
+		"/C/gtwo/config/app.php",
+		"/C/gtwo/app/Http/Controllers/ImageController.php",
+		"/C/gtwo/app/Http/Controllers/CartController.php",
+		"/C/gtwo/app/Http/Controllers/ProductController.php",
+		"/C/gtwo/app/Order.php",
+		"/C/gtwo/vendor/laravel/framework/src/Illuminate/Foundation/Auth/AuthenticatesAndRegistersUsers.php",
+		"/C/gtwo/bootstrap/app.php",
+		"/C/gtwo/app/Referral.php",
+		"/C/gtwo/resources/views/orders/order.blade.php",
+		"/C/gtwo/app/Http/Controllers/UserController.php",
+		"/C/gtwo/.env",
+		"/C/gtwo/app/Services/Registrar.php",
+		"/C/gtwo/resources/views/auth/register.blade.php",
+		"/C/gtwo/app/Payment.php",
+		"/C/gtwo/database/migrations/2015_05_06_043814_create_referrals_table.php",
+		"/C/gtwo/vendor/nesbot/carbon/src/Carbon/Carbon.php",
+		"/C/gtwo/app/Http/Middleware/CheckIfAdmin.php",
+		"/C/gtwo/app/Http/Controllers/OrderController.php",
+		"/C/gtwo/database/migrations/2015_05_06_045505_create_users_table.php",
+		"/C/gtwo/app/Http/Kernel.php",
+		"/C/gtwo/database/migrations/2015_05_06_045613_create_orders_table.php",
+		"/C/gtwo/app/Address.php",
+		"/C/gtwo/database/migrations/2015_05_06_045113_create_orders_table.php",
+		"/C/gtwo/database/migrations/2015_05_06_045405_create_payments_table.php",
+		"/C/gtwo/database/migrations/2015_05_06_044814_create_referrals_table.php",
+		"/C/gtwo/database/migrations/2015_05_06_043505_create_users_table.php",
+		"/C/gtwo/resources/views/auth/countries.blade.php",
+		"/C/gtwo/database/migrations/2015_05_06_045302_create_orderdetails_table.php",
+		"/C/gtwo/resources/views/products/product.blade.php",
+		"/C/gtwo/database/migrations/2015_05_06_041111_create_products_table.php",
+		"/C/gtwo/resources/views/products/store.blade.php",
+		"/C/gtwo/app/Http/Controllers/HomeController.php",
+		"/C/gtwo/resources/views/about.blade.php",
+		"/C/gtwo/resources/views/contact.blade.php",
+		"/C/gtwo/resources/views/auth/login.blade.php",
+		"/C/gtwo/composer.json",
+		"/C/gtwo/app/Product.php",
+		"/C/gtwo/resources/assets/less/app.less",
+		"/C/Users/jeff/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/jeff/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/gtwo/config/database.php",
+		"/C/gtwo/resources/views/auth/reset.blade.php",
+		"/C/gtwo/resources/views/auth/password.blade.php",
+		"/C/Users/jeff/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/jeff/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/gtwo/database/seeds/ProductTableSeeder.php",
+		"/C/gtwo/database/seeds/DatabaseSeeder.php",
+		"/C/gtwo/resources/views/products/create.blade.php",
+		"/C/gtwo/resources/views/products/edit.blade.php",
+		"/C/gtwo/app/Route.php",
 		"/C/wamp/www/cats/config/app.php",
 		"/C/wamp/www/cats/composer.json",
-		"/C/wamp/www/cats/config/database.php",
-		"/C/Users/jeff/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+		"/C/wamp/www/cats/config/database.php"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 23.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -75,6 +221,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"p",
+			"tel",
+			"();\n",
+			"line_1",
+			"phone",
+			"email",
+			"id",
+			"sponsor_id",
+			"value=\"\"",
+			"user_id",
+			"		\n",
+			"line",
+			"last_name",
+			"user_id",
+			"',\n",
+			"						\n",
+			"email",
+			"homestead"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -92,18 +256,113 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "app/Http/Controllers/OrderController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4211,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								812,
+								812
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2070.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Http/Controllers/UserController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2973,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2909,
+								2909
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 1305.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "resources/views/users/referrals.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1566,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								605,
+								605
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Laravel Blade Highlighter/laravel-blade.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"file": "resources/upload/deposit/11.jpg",
+					"semi_transient": true,
+					"stack_index": 0,
+					"type": "image"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 0.0
+		"height": 23.0
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 31.0
 	},
 	"layout":
 	{
@@ -136,7 +395,7 @@
 	"project": "gtwo.sublime-project",
 	"replace":
 	{
-		"height": 0.0
+		"height": 42.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -145,6 +404,54 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"model",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php"
+			],
+			[
+				"rou",
+				"app\\Http\\routes.php"
+			],
+			[
+				"orderc",
+				"app\\Http\\Controllers\\OrderController.php"
+			],
+			[
+				"order",
+				"app\\Order.php"
+			],
+			[
+				"orderco",
+				"app\\Http\\Controllers\\OrderController.php"
+			],
+			[
+				"cus",
+				"public\\css\\custom.css"
+			],
+			[
+				"authenticatesandregistersusers",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Auth\\AuthenticatesAndRegistersUsers.php"
+			],
+			[
+				"app.p",
+				"config\\app.php"
+			],
+			[
+				"app",
+				"bootstrap\\app.php"
+			],
+			[
+				"reg",
+				"app\\Services\\Registrar.php"
+			],
+			[
+				"carbon",
+				"vendor\\nesbot\\carbon\\src\\Carbon\\Carbon.php"
+			],
+			[
+				"regis",
+				"app\\Services\\Registrar.php"
+			],
 			[
 				"config/app",
 				"config\\database.php"
@@ -163,12 +470,12 @@
 	},
 	"select_symbol":
 	{
-		"height": 0.0,
+		"height": 392.0,
 		"last_filter": "",
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 753.0
 	},
 	"selected_group": 0,
 	"settings":
@@ -178,7 +485,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 328.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

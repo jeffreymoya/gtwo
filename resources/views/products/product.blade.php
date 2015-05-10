@@ -19,7 +19,7 @@
                 </div>
                     <div class="form-group pull-left col-md-6">
                      <label for="price">Price</label>
-                     <p class="form-control-static text-danger"><strong>{{$product->price}}</strong> USD</p>
+                     <p class="form-control-static text-danger"><strong>{{$product->price}}</strong> {{Config::get('app.currency')}}</p>
                 </div>
                     <div class="form-group pull-left col-md-6">
                      <label for="available">In Stock</label>

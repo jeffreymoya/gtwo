@@ -20,7 +20,7 @@
 		<input type="submit" class="form-control btn-danger" value="Checkout"></form>
 		</div>
 	@else
-		<p class="text-danger">You're shopping cart is empty.</p>	
+		<p class="text-danger">Your shopping cart is empty.</p>	
 	@endif
 </div>
 
