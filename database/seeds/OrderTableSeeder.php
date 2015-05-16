@@ -9,7 +9,8 @@ class OrderTableSeeder extends Seeder {
 
     public function run()
     {
-        // TestDummy::times(20)->create('App\Post');
+        DB::table('orders')->delete();
+        DB::table('payments')->delete();
     }
 
 }

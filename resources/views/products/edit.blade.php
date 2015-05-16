@@ -1,22 +1,13 @@
 @extends('layout')
 
 @section('content')
-    <div class="page-header">
-        <h1>Products / Edit </h1>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-12">
-
+<div class="preview-page row margin-vertical">
+    <div class="col-md-10 col-md-offset-1"> 
+        <h3>Edit Order</h3>
             <form action="{{ route('products.update', $product->id) }}" method="POST">
                 <input type="hidden" name="_method" value="PUT">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                <div class="form-group">
-                    <label for="nome">ID</label>
-                    <p class="form-control-static">{{$product->id}}</p>
-                </div>
                 <div class="form-group">
                      <label for="code">CODE</label>
                      <input type="text" name="code" class="form-control" value="{{$product->code}}"/>

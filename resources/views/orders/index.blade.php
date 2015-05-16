@@ -1,13 +1,9 @@
 @extends('layout')
 
 @section('content')
-    <div class="page-header">
-        <h1>Pending Orders</h1>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-12">
+<div class="preview-page row margin-vertical">
+    <div class="col-md-10 col-md-offset-1">
+        <h3>Approve Purchases</h3>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -39,6 +35,5 @@
             </table>
         </div>
     </div>
-
 
 @endsection

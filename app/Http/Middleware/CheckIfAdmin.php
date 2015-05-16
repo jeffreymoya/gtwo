@@ -32,7 +32,7 @@ class CheckIfAdmin {
 	 */
 	public function handle($request, Closure $next)
 	{
-		if (!$this->auth->user()->isAdmin())
+		if (!$this->auth->check() || !$this->auth->user()->isAdmin())
 		{
 			return response('Unauthorized.', 401);
 		}

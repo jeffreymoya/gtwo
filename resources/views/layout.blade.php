@@ -1,89 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="favicon.ico">
-
-    <title>Company ABC</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ url('css/custom.css') }}" rel="stylesheet">
-
+<title>Company ABC</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ url('css/font.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all">
+<script type="text/javascript" src="{{ url('js/jquery-1.9.0.min.js') }}"></script> 
+<script src="{{ url('js/jquery.openCarousel.js') }}" type="text/javascript"></script>
+<script type="text/javascript" src="{{ url('js/easing.js') }}"></script>
+<script type="text/javascript" src="{{ url('js/move-top.js') }}"></script>
+@yield('assets')
 </head>
-
 <body>
-<nav class="navbar navbar-default">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <span class="navbar-brand">Company ABC</span>
+    <div class="header">
+            <div class="wrap">
+                <div class="header_top">
+                    <div class="logo">
+                        <a href="{{ url() }}">Company ABC</a>
+                    </div>
+                        <div class="header_top_right">
+                            <div class="links">
+                            @if(Auth::check())
+                              @if(Auth::user()->isAdmin())
+                                <a href="#">members</a>&nbsp;|&nbsp;
+                                <a href="{{url('orders')}}">approve purchases</a>&nbsp;|&nbsp;
+                                <a href="{{url('auth/logout')}}">logout</a>
+                              @else
+                                <a href="{{url('orders')}}">orders</a>&nbsp;|&nbsp;
+                                <a href="{{url('referrals')}}">referrals</a>&nbsp;|&nbsp;
+                                <a href="{{url('auth/logout')}}">logout</a>
+                              @endif
+                            @else
+                              <a href="{{url('auth/login')}}">login</a>&nbsp;|&nbsp;
+                              <a href="{{url('auth/register')}}">register</a>
+                            @endif
+                            </div>
+                            <div class="search_box">
+                                <span>Search</span>
+                                <form>
+                                    <input type="text" value=""><input type="submit" value="">
+                                </form>
+                                <div class="clear"></div>
+                            </div>
+                    </div>
+                 <div class="clear"></div>
+            </div>     
+            <div class="navigation">
+                <a class="toggleMenu" href="#">Menu</a>
+                    <ul class="nav">
+                        <li>
+                            <a href="{{url()}}">Home</a>
+                        </li>
+                        <li class="test">
+                            <a href="#" class="parent">Product A</a>
+                            <ul>
+                                <li>
+                                    <a href="#" class="parent">Product A1</a>
+                                    <ul>
+                                        <li><a href="#">Product A1.1</a></li>
+                                        <li><a href="#">Product A1.2</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#" class="parent">Product A2</a>
+                                    <ul>
+                                        <li><a href="#">Product A2.1</a></li>
+                                        <li><a href="#">Product A2.2</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="parent">Product B</a>
+                            <ul>
+                                <li>
+                                    <a href="#" class="parent">Product B1</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="parent">Product B2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="parent">Product C</a>
+                        </li>
+                        <li>
+                            <a href="#" class="parent">Product D</a>
+                        </li>
+                        <li>
+                            <a href="#" class="parent">About Us</a>
+                        </li>
+                        <li>
+                            <a href="#" class="parent">Contact Us</a>
+                        </li>
+                    </ul>
+                     <span class="left-ribbon"> </span> 
+                     <span class="right-ribbon"> </span>    
+            </div>
+             <div class="header_bottom">
+               @yield('headercontent')
+             <div class="clear"></div>
+          </div>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="{{url()}}">Home</a></li>
-                @if(Auth::guest())
-                    <li @if(Request::is('about')) class="active" @endif><a href="{{url('about')}}">About</a>
-                    </li>
-                    <li @if(Request::is('contact')) class="active" @endif><a href="{{url('contact')}}">Contact</a>
-                @elseif(Auth::check() AND Auth::user()->isAdmin())
-                    <li @if(Request::is('sales')) class="active" @endif><a href="#">Sales</a></li>
-                    <li @if(Request::is('orders')) class="active" @endif><a href="{{url('orders')}}">Approve Deposits</a></li>
-                    <li @if(Request::is('members')) class="active" @endif><a href="#">Members</a></li>
-                @else
-                    <li @if(Request::is('orders')) class="active" @endif><a href="{{url('orders')}}">Orders</a></li>
-                    <li @if(Request::is('referrals')) class="active" @endif><a href="{{url('referrals')}}">Referrals</a></li>
-                @endif
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                @if (Auth::guest())
-                    <li @if(Request::is('auth/login')) class="active" @endif><a href="{{ url('/auth/login') }}">Login</a></li>
-                    <li @if(Request::is('auth/register')) class="active" @endif><a href="{{ url('/auth/register') }}">Register</a></li>
-                @else
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->user_id }} <span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/auth/logout') }}">Logout</a></li>
-                        </ul>
-                    </li>
-                @endif
-            </ul>
-        </div><!--/.nav-collapse -->
+   </div>
+   <!------------End Header ------------>
+  <div class="main">
+      <div class="content">
+          @yield('content')
+      </div>
     </div>
-</nav>
-<div class="container">
-    @if(Session::has('message'))
-        <div class="alert alert-success">
-        {{Session::get('message')}}
-        </div>
-    @endif
-    <div class="row">
-        <div class="col-md-12">
-            @yield('content')
+   <div class="footer">
+      <div class="wrap">      
+           <div class="footer-nav">
+            <ul>
+                <li><a href="#">Terms of Use</a> : </li>
+                <li><a href="#">Privacy Policy</a> : </li>
+                <li><a href="contact.html">Contact Us</a> : </li>
+                <li><a href="#">Sitemap</a></li>
+            </ul>
+           </div>       
         </div>
     </div>
-</div><!-- /.container -->
+    <script type="text/javascript">
+        $(document).ready(function() {          
+            $().UItoTop({ easingType: 'easeOutQuart' });
+            
+        });
+    </script>
+    <a href="#" id="toTop"> </a>
+    <script type="text/javascript" src="{{ url('js/navigation.js') }}"></script>
 
 
 
-
-
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
-</body>
-</html>
+<a href="#" id="toTop">To Top</a></body></html>

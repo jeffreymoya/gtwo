@@ -1,10 +1,10 @@
 @extends('layout')
 
 @section('content')
-<div class="page-header">
-    <h1>Checkout</h1>
-</div>
-<div class="col-md-12">
+
+<div class="preview-page row margin-vertical">
+	<div class="col-md-10 col-md-offset-1"> 
+	<h3>Checkout</h3>
 	@if(Cart::getContent()->count())
 	<table class="table table-striped">
 		<thead>
@@ -25,14 +25,14 @@
 					<td><strong>{{$item->price}}</strong></td>
 					<td><strong>{{round($item->price*$item->quantity,2)}}</strong></td>
 					@if(Auth::user()->hasDiscount()) 
-						<td>{{$item->conditions->getName()}}</td> 
+						<td>{{$item->conditions ? $item->conditions->getName() : none }}</td> 
 					@endif
 					<td><a href="{{ url('cart', $item->id) }}"><span class="glyphicon glyphicon-remove"></span></a></td>
 				</tr>
 			@endforeach
 		</tbody>
 	</table>
-		<div class="row purchase-info">
+		<div class="purchase-info">
 			<h4 class="pull-left">@if(Auth::user()->hasDiscount()) Discounted @endif Amount: <span class="text-danger">{{ round(Cart::getTotal(), 2) }} {{Config::get('app.currency')}}</span></h4>
 			<div class="form-group col-md-2 pull-right">
 				<form action="{{ url('orders') }}" method="POST">
@@ -43,6 +43,7 @@
 	@else
 		<p class="text-danger">You're shopping cart is empty.</p>	
 	@endif
+	</div>
 </div>
 
 @endsection

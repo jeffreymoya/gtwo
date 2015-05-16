@@ -1,7 +1,11 @@
 @extends('layout')
 
+@section('top-assets')
+<link href="{{ url('css/bootstrap.min.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid margin-vertical">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<div class="panel panel-default">
@@ -60,8 +64,8 @@
 		                     <input type="text" name="last_name" class="form-control" value="{{Input::old('last_name')}}"/>
 							</div>
 		                </div>
-		                <fieldset>
-		                	<legend>Address:</legend>
+		                <hr/>
+		                	<p class="text-center">Address</p><br/>
 		                	<div class="form-group">
 		                     <label class="col-md-4 control-label" for="line_1">Line 1 <font color="red">*</font></label>
 							<div class="col-md-6">
@@ -95,7 +99,6 @@
 							</div>
 							</div>
 							<hr/>
-		                </fieldset>
 		                    <div class="form-group">
 		                     <label class="col-md-4 control-label" for="phone">Phone <font color="red">*</font></label>
 							<div class="col-md-6">

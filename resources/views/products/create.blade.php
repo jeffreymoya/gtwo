@@ -1,14 +1,9 @@
 @extends('layout')
 
 @section('content')
-    <div class="page-header">
-        <h1>Products / Create </h1>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-12">
-
+<div class="preview-page row margin-vertical">
+    <div class="col-md-10 col-md-offset-1"> 
+        <h3>Create Order</h3>
             <form action="{{ route('products.store') }}" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 

@@ -11,10 +11,6 @@
 
             <form action="#">
                 <div class="form-group">
-                    <label for="nome">ID</label>
-                    <p class="form-control-static">{{$product->id}}</p>
-                </div>
-                <div class="form-group">
                      <label for="code">CODE</label>
                      <p class="form-control-static">{{$product->code}}</p>
                 </div>

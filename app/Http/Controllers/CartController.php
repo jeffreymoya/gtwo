@@ -61,8 +61,8 @@ class CartController extends Controller {
 	}
 
 	protected function createItem(Product $product, $quantity) {
-		if(Auth::check() && Auth::user()->hasDiscount()) {
-			if($product->discount > 0) {
+
+		if(Auth::check() && Auth::user()->hasDiscount() && $product->discount > 0) {
 				$discount = $product->discount;
 				if($discount >= 1) {
 					$discount = intval($discount);
@@ -86,8 +86,6 @@ class CartController extends Controller {
 		            'attributes' => array(),
 		            'conditions' => $saleCondition
 		        );
-
-			} 
 		} else {
 			$item = array(
 	            'id' => $product->id,

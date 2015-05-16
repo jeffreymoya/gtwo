@@ -1,13 +1,10 @@
 @extends('layout')
 
 @section('content')
-    <div class="page-header">
-        <h1>Order # {{$order->id}}</h1>
-    </div>
 
-
-    <div class="row">
-        <div class="col-md-12">
+    <div class="preview-page row margin-vertical">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Order # {{$order->id}}</h3>
             @if($errors->any())
                 <div class="alert alert-danger">
                     @foreach($errors->all() as $error)
@@ -29,7 +26,7 @@
                      <label for="address_id">Order Date:</label>
                      <span class="form-control-static">{{$order->created_at->toDateString()}}</span>
                      </div>
-                    <div class="form-group">
+                <div class="form-group thin-border">
                      @if(!empty($order->payment->deposit_slip_image))
                         <label for="order_date">Deposit Slip</label>
                         <p class="form-control-static"><img class="deposit-slip" src="{{ url('images/deposits',$order->payment->deposit_slip_image) }}"></p>
@@ -38,11 +35,11 @@
                         <label for="order_date">Upload Deposit Slip</label>
                         <span><input type="file" class="form-control-static" accept="image/*" name="deposit_slip"></span>
                      @endif
+                     <input type="hidden" name="orderId" value="{{$order->id}}"/> 
+                    @if(empty($order->payment->deposit_slip_image))
+                        <button class="btn btn-danger" type="submit">Upload</button>
+                    @endif
                 </div>
-                <input type="hidden" name="orderId" value="{{$order->id}}"/> 
-                @if(empty($order->payment->deposit_slip_image))
-                    <button class="btn btn-danger" type="submit">Upload</button>
-                @endif
             </form>
 
         </div>

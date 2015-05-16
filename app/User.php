@@ -1,5 +1,6 @@
 <?php namespace App;
 
+use App\Role;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -32,8 +33,9 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	protected $hidden = ['password', 'remember_token'];
 
 	public function isAdmin() {
+		$role = Role::where('name','=','admin')->first();
 
-		return $this->role_id === 2;
+		return $this->role_id === $role->id;
 	}
 
 	public function hasDiscount() {
@@ -54,7 +56,7 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		$orders = $this->orders;
 		$total = 0;
 		foreach ($orders as $order) {
-			if($order->commission !== null && $order->status === 1) {
+			if($order->commission !== null && $order->status == 1) {
 				$total = $total + $order->commission;
 			}
 		}

@@ -204,5 +204,6 @@ return [
 
 	//currency
 	'currency' => 'USD',
+	'currency_symbol' => '$', 
 
 ];

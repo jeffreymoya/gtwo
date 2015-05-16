@@ -38,4 +38,6 @@ Route::controllers([
 
 Route::resource("products","ProductController");
 
-Route::get('images/deposits/{id}', 'ImageController@deposits');
+Route::get('images/deposits/{id}', ['middleware' => 'auth', 'uses'=>'ImageController@deposits']);
+Route::get('images/product/thumb/{id}', 'ImageController@thumb');
+Route::get('images/product/{id}', 'ImageController@product');

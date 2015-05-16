@@ -1,20 +1,15 @@
 @extends('layout')
 
 @section('content')
-    <div class="page-header">
-        <h1>Products</h1>
-    </div>
-
-
-    <div class="row">
-        <div class="col-md-12">
+<div class="preview-page row margin-vertical">
+    <div class="col-md-10 col-md-offset-1"> 
+        <h3>Products</h3>
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>ID</th>
                         <th>CODE</th>
                         <th>NAME</th>
-                        <th>DESCRIPTION</th>
                         <th>IMAGE</th>
                         <th>PRICE</th>
                         <th>COMMISSION</th>
@@ -30,7 +25,6 @@
                     <td>{{$product->id}}</td>
                     <td>{{$product->code}}</td>
                     <td>{{$product->name}}</td>
-                    <td>{{$product->description}}</td>
                     <td>{{$product->image}}</td>
                     <td>{{$product->price}}</td>
                     <td>{{$product->commission}}</td>

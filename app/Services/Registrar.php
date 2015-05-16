@@ -3,6 +3,7 @@
 use App\User;
 use App\Referral;
 use App\Address;
+use App\Role;
 use Validator;
 use Request;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
@@ -48,9 +49,11 @@ class Registrar implements RegistrarContract {
 			'postal_code'=>$data['postal_code']
 			]);
 
+		$role = Role::where('name','=','member')->first();
+
 		$user = User::create([
 			'user_id' => $data['user_id'],
-			'role_id' => 1,
+			'role_id' => $role->id,
 			'iexp4u_id' => $data['iexp4u_id'],
 			'first_name' => $data['first_name'],
 			'last_name' => $data['last_name'],

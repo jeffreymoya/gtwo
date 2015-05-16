@@ -25,13 +25,26 @@ class ProductController extends Controller {
 	{
 		$products = Product::all();
 
-		$view = 'products.store';
-
 		if(Auth::check() && Auth::user()->isAdmin()) {
-			$view = 'products.index';
+
+			return view('products.index', compact('products'));
+		} 
+
+		$latest = Product::orderBy('created_at','desc')->take(10)->get();
+
+		$sections = [];
+		$tmp = [];
+		$i = 1;
+		foreach ($products as $product) {
+			$tmp[] = $product;
+			if(($i % 4) === 0) {
+				$sections[] = $tmp;
+				$tmp = [];
+			}
+			$i++;
 		}
 
-		return view($view, compact('products'));
+		return view('products.store', compact('sections', 'latest'));
 	}
 
 	/**
@@ -77,13 +90,13 @@ class ProductController extends Controller {
 	{
 		$product = Product::findOrFail($id);
 
-		$view = 'products.product';
-
 		if(Auth::check() && Auth::user()->isAdmin()) {
-			$view = 'products.show';
+			return view('products.show', compact('product'));
 		}
 
-		return view($view, compact('product'));
+		$popular = Product::take(3)->get();
+
+		return view('products.product', compact('product', 'popular'));
 	}
 
 	/**

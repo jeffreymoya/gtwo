@@ -1,4 +1,4 @@
-<?php
+	<?php
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -14,8 +14,8 @@ class CreateReferralsTable extends Migration {
 	{
 		Schema::create('referrals', function(Blueprint $table) {
             $table->increments('id');
-            $table->integer('sponsor_id');
-            $table->integer('referral_id');
+            $table->integer('sponsor_id')->unsigned();
+            $table->integer('referral_id')->unsigned();
             $table->integer('location');
             $table->timestamps();
 
